@@ -11,8 +11,9 @@ permissions:
 
 jobs:
   maestro-mobile-tests:
-    # macOS runners support hardware acceleration for Android emulators, making tests much faster
-    runs-on: macos-latest
+    # macOS-13 is Intel-based, supporting x86_64 emulator hardware acceleration. 
+    # (macos-latest is Apple Silicon / M1 which requires arm64 images)
+    runs-on: macos-13
     env:
       SUITE_FILE: maestro-e2e-automation/master_suite.yaml
     steps:
