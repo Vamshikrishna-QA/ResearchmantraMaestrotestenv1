@@ -1,0 +1,9 @@
+{
+  "name": "maestro-e2e-automation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "validate": "python scripts/validate_yaml.py",
+    "run": "run_test.bat"
+  }
+}

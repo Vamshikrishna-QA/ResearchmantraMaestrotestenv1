@@ -1,0 +1,50 @@
+appId: com.research_mantra_official
+---
+# 1. System push notification permission
+- runFlow:
+    when:
+      visible: ".*Allow Research Mantra to send you notifications.*|Allow"
+    commands:
+      - tapOn: "Allow"
+      - waitForAnimationToEnd
+
+# 2. SEBI Important Notice / Risk Disclosures on Derivatives
+- runFlow:
+    when:
+      visible: "I Understand"
+    commands:
+      - tapOn: "I Understand"
+      - waitForAnimationToEnd
+
+# 3. Premium Free Gift popup
+- runFlow:
+    when:
+      visible: ".*Unlock Your Premium Free Gift.*"
+    commands:
+      - back
+      - waitForAnimationToEnd
+
+# 4. Trial Activation Modal
+- runFlow:
+    when:
+      visible: "Successfully Activated"
+    commands:
+      - assertVisible: "Your free trial is now active for:"
+      - tapOn: "Continue"
+      - waitForAnimationToEnd
+
+# 5. Generic modal dismissers
+- runFlow:
+    when:
+      visible: ".*Later.*|.*Skip.*|.*Cancel.*|.*Dismiss.*|.*Remind me later.*|.*Not Now.*"
+    commands:
+      - tapOn: ".*Later.*|.*Skip.*|.*Cancel.*|.*Dismiss.*|.*Remind me later.*|.*Not Now.*"
+      - waitForAnimationToEnd
+
+# 6. Top-right sheet close icon (X)
+- runFlow:
+    when:
+      visible: ".*✕.*|.*X.*"
+    commands:
+      - tapOn: ".*✕.*|.*X.*"
+      - waitForAnimationToEnd

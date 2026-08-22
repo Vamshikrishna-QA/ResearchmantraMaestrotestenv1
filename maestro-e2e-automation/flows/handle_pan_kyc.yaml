@@ -1,0 +1,30 @@
+appId: com.research_mantra_official
+---
+- runFlow:
+    when:
+      visible: "PAN Verification Required"
+    commands:
+      - assertVisible: "PAN verification is mandatory as per SEBI guidelines to access trades."
+      - tapOn: "Verify Pan"
+      - waitForAnimationToEnd
+
+      - extendedWaitUntil:
+          visible: "PAN Verification"
+          timeout: 10000
+
+      - tapOn: ".*e.g. ABCDE1234F.*|.*PAN Number.*"
+      - inputText: "BXPPV1297K"
+      - hideKeyboard
+      - waitForAnimationToEnd
+
+      - tapOn: "Verify PAN"
+      - waitForAnimationToEnd
+
+      # Assert Success & Tap "Go to Trades"
+      - extendedWaitUntil:
+          visible: "Go to Trades"
+          timeout: 15000
+
+      - assertVisible: "Verification Successful! Your PAN has been verified."
+      - tapOn: "Go to Trades"
+      - waitForAnimationToEnd

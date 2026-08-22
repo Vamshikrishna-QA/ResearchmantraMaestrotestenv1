@@ -1,0 +1,95 @@
+appId: com.research_mantra_official
+---
+# 1. Open Trades Tab
+- tapOn: "Trades"
+- waitForAnimationToEnd
+
+# 2. Verify Services Catalog Categories
+- assertVisible: "Services"
+- assertVisible: "Live Trades"
+- assertVisible: "Closed Trades"
+
+- tapOn: "Commodity Mantra"
+- waitForAnimationToEnd
+- assertVisible: "MCX Positional (Base Metals)"
+- assertVisible: "MCX Positional (Gold&Silver)"
+
+- tapOn: "Equity Mantra"
+- waitForAnimationToEnd
+- assertVisible: "RESEARCH REPORT"
+- assertVisible: "LONG TERM GOAL-ORIENTED"
+
+- tapOn: "Future Mantra"
+- waitForAnimationToEnd
+- assertVisible: "NIFTY POSITIONAL"
+- assertVisible: "MIDCAP POSITIONAL"
+
+# 3. Live Trades Feed & PAN KYC Guard
+- tapOn: "Live Trades"
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../flows/handle_pan_kyc.yaml
+
+# 4. Handle Active Feed vs Free Trial Activation
+- runFlow:
+    when:
+      visible: "Activate Free Trial"
+    commands:
+      - tapOn: "Activate Free Trial"
+      - waitForAnimationToEnd
+      - runFlow:
+          file: ../flows/dismiss_popups.yaml
+
+# 5. Open Trade Details Bottom Sheet
+- runFlow:
+    when:
+      visible: "View Trade Details"
+    commands:
+      - tapOn:
+          text: "View Trade Details"
+          index: 0
+      - waitForAnimationToEnd
+
+      - assertVisible: "Trade Details"
+      - assertVisible: "Analysis"
+      - assertVisible: "Trade Setup"
+      - assertVisible: ".*Entry Price.*"
+      - assertVisible: ".*Stop Loss.*"
+      - assertVisible: ".*Target.*"
+      - assertVisible: "Research Updates"
+
+      # Close Bottom Sheet (X)
+      - tapOn:
+          point: "93%, 18%"
+      - waitForAnimationToEnd
+
+# 6. Live Commentary Stream
+- tapOn: "Live Commentary"
+- waitForAnimationToEnd
+- assertVisible: ".*Connected to live updates.*|.*Waiting for live commentary.*|.*SIGNAL.*"
+
+# 7. Closed Trades & Excel Report Download
+- tapOn: "Closed Trades"
+- waitForAnimationToEnd
+
+# Tap Download Icon at bottom right
+- tapOn:
+    point: "88%, 91%"
+- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: "Download Closed Trade Report"
+    timeout: 10000
+
+- assertVisible: "Start Date"
+- assertVisible: "End Date"
+- tapOn: "Download Report"
+- waitForAnimationToEnd
+
+# Dismiss Android OS Share Sheet
+- back
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../flows/reset_to_explore.yaml

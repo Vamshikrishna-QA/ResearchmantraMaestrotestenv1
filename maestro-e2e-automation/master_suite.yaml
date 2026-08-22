@@ -1,0 +1,25 @@
+appId: com.research_mantra_official
+---
+# 1. Onboarding, Push Permission, Form Registration & SEBI Notice
+- runFlow:
+    file: tests/01_onboarding_and_registration.yaml
+
+# 2. Explore Home, 2x2 Grid Routing, Research Stocks PDF Reader & Filters
+- runFlow:
+    file: tests/02_explore_dashboard_and_stocks.yaml
+
+# 3. Financial Calculators Hub (All 10 Financial Tools)
+- runFlow:
+    file: tests/03_financial_calculators_hub.yaml
+
+# 4. Live Signals, PAN KYC (BXPPV1297K), Free Trial & Closed Trades Excel Export
+- runFlow:
+    file: tests/04_trades_pan_signals_and_trials.yaml
+
+# 5. Product Catalog, 100% Coupon (GETFREE), NetBanking PG (111000) & Confirmation
+- runFlow:
+    file: tests/05_cart_coupons_and_cashfree_pg.yaml
+
+# 6. Profile Edit, My Collection Active Status, PDF Invoices & App Logout
+- runFlow:
+    file: tests/06_profile_collection_and_settings.yaml

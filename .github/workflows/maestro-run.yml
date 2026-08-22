@@ -1,0 +1,59 @@
+name: Execute Maestro Mobile Tests
+
+on:
+  repository_dispatch:
+    types: [run-maestro-tests]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  maestro-mobile-tests:
+    runs-on: ubuntu-latest
+    env:
+      SUITE_FILE: maestro-e2e-automation/master_suite.yaml
+    steps:
+      - name: Checkout Maestro Test Repository
+        uses: actions/checkout@v4
+
+      - name: Display Trigger Details
+        run: |
+          echo "Triggered by: ${{ github.event_name }}"
+          echo "Client payload branch: ${{ github.event.client_payload.branch }}"
+          echo "Client payload sha: ${{ github.event.client_payload.sha }}"
+
+      # Preferred: Run on Maestro Cloud when secrets are configured
+      - name: Run Tests on Maestro Cloud
+        if: ${{ secrets.MAESTRO_API_KEY != '' && secrets.MAESTRO_PROJECT_ID != '' }}
+        uses: mobile-dev-inc/action-maestro-cloud@v2
+        with:
+          api-key: ${{ secrets.MAESTRO_API_KEY }}
+          project-id: ${{ secrets.MAESTRO_PROJECT_ID }}
+          app-file: path/to/your-app-release.apk
+          workspace: .maestro/
+        # Capture outputs for artifacts
+        env:
+          MAESTRO_API_KEY: ${{ secrets.MAESTRO_API_KEY }}
+
+      # Option B: Run via Maestro CLI on a self-hosted runner or GitHub runner
+      - name: Install Maestro CLI (CLI-based runs)
+        if: ${{ secrets.MAESTRO_API_KEY == '' || secrets.MAESTRO_PROJECT_ID == '' }}
+        run: |
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> $GITHUB_PATH
+
+      - name: Run Maestro test suite (CLI)
+        if: ${{ secrets.MAESTRO_API_KEY == '' || secrets.MAESTRO_PROJECT_ID == '' }}
+        run: |
+          maestro test --file "$SUITE_FILE" --format junit --test-output-dir build/artifacts --output build/reports/junit-report.xml
+
+      - name: Upload Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maestro-artifacts
+          path: |
+            build/reports/**
+            build/artifacts/**

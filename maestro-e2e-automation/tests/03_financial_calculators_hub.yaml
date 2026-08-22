@@ -1,0 +1,59 @@
+appId: com.research_mantra_official
+---
+# 1. Open Calc Tab
+- tapOn: "Calc"
+- waitForAnimationToEnd
+
+# 2. Iterate through all 10 Calculators
+- tapOn: "Retirement Plans"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+- tapOn: "SIP Calculator"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+- tapOn: "Risk Reward Calculator"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+- tapOn: "Car Loan Full payment"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+- tapOn: "GST Savings calculator"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+- tapOn: "Home Loan Repayment"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+- tapOn: "Sukanya samriddhi Yojana"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+- tapOn: "Lumpsum Calculator"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+- tapOn: "CAGR Calculator"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+- tapOn: "Salary Budget Calculator"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../flows/reset_to_explore.yaml

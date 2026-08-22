@@ -1,0 +1,118 @@
+appId: com.research_mantra_official
+---
+# 1. Top Bar Elements & Header Cart/Notifications Badges
+- assertVisible: "Explore"
+- assertVisible: "Trade Plans by Susmita"
+
+# 2. Promo Banner Swiping
+- repeat:
+    times: 3
+    commands:
+      - swipe:
+          start: "85%, 25%"
+          end: "15%, 25%"
+          duration: 400
+      - waitForAnimationToEnd
+
+# 3. 2x2 Trade Plans Grid Navigation
+# Commodity Mantra
+- assertVisible: "Commodity Mantra"
+- tapOn:
+    text: "Subscribe Now"
+    index: 0
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+# Equity Mantra
+- assertVisible: "Equity Mantra"
+- tapOn:
+    text: "Subscribe Now"
+    index: 1
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+# Future Mantra
+- assertVisible: "Future Mantra"
+- tapOn:
+    text: "Subscribe Now"
+    index: 0
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+# Option Mantra
+- assertVisible: "Option Mantra"
+- tapOn:
+    text: "Subscribe Now"
+    index: 1
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+# 4. Explore Now -> Research Stocks Reader Flow
+- scrollUntilVisible:
+    element: "Explore Now"
+    direction: DOWN
+    timeout: 10000
+
+- assertVisible: "Research Reports"
+- tapOn: "Get Started"
+- waitForAnimationToEnd
+
+# Assert Stocks List
+- extendedWaitUntil:
+    visible: "Research Stocks"
+    timeout: 12000
+
+- assertVisible: "APL Apollo Tubes Ltd"
+- assertVisible: "Sundaram Finance Ltd"
+- assertVisible: "Tata Steel Ltd"
+
+# Open APL Apollo Stock Report
+- tapOn:
+    text: "Subscriber report"
+    index: 0
+- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: "Report"
+    timeout: 12000
+
+- assertVisible: "APL Apollo Tubes Ltd"
+- assertVisible: "Key Highlights"
+
+# Page Navigation inside Report Viewer (Next Page >)
+- tapOn:
+    point: "81%, 90%"
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+# Open & Apply Stock Filter Sheet
+- tapOn:
+    point: "88%, 91%"
+- waitForAnimationToEnd
+
+- assertVisible: "Filters"
+- assertVisible: "Market Cap"
+- assertVisible: "ALL"
+- tapOn: "Apply"
+- waitForAnimationToEnd
+
+- back
+- waitForAnimationToEnd
+
+# 5. Susmita Performance Carousel
+- scrollUntilVisible:
+    element: "Susmita Performance"
+    direction: DOWN
+    timeout: 10000
+
+- assertVisible: "Avg. return / trade"
+- assertVisible: "Avg. duration"
+- assertVisible: "Total Closed Trades:"
+
+- runFlow:
+    file: ../flows/reset_to_explore.yaml

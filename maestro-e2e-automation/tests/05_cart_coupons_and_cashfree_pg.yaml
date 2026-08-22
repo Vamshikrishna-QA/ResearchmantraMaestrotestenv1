@@ -1,0 +1,132 @@
+appId: com.research_mantra_official
+---
+# 1. Product Selection: Research Report
+- tapOn: "Trades"
+- waitForAnimationToEnd
+- tapOn: "Services"
+- waitForAnimationToEnd
+
+- scrollUntilVisible:
+    element: "RESEARCH REPORT"
+    direction: DOWN
+    timeout: 10000
+
+- tapOn: "RESEARCH REPORT"
+- waitForAnimationToEnd
+
+- assertVisible: "Research Report"
+- assertVisible: "Premium Research"
+- tapOn: ".*Add [tT]o Cart.*"
+- waitForAnimationToEnd
+
+# 2. Open Cart from Top Bar Icon
+- tapOn:
+    point: "76%, 8%"
+- waitForAnimationToEnd
+
+- assertVisible: "Cart"
+- assertVisible: "Research Report"
+- assertVisible: "₹999.00"
+
+# 3. Apply 100% Promo Coupon (GETFREE)
+- tapOn: "View Coupon"
+- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: "Have a coupon code?"
+    timeout: 10000
+
+- tapOn:
+    text: "Apply"
+    index: 1
+- waitForAnimationToEnd
+
+- assertVisible: "Coupon \"GETFREE\" applied"
+- assertVisible: "₹0.00"
+
+# 4. Trigger Duration Picker
+- tapOn: "Activate Now"
+- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: "Choose Duration"
+    timeout: 10000
+
+- assertVisible: "Quarterly Plan"
+- assertVisible: "Half-Yearly Plan"
+- assertVisible: "Yearly Plan"
+
+- tapOn: "GET FREE"
+- waitForAnimationToEnd
+
+# 5. SEBI Client Declaration & Risk Disclosure Agreement
+- extendedWaitUntil:
+    visible: "Client Declaration & Risk Disclosure Agreement (As per SEBI Guidelines)"
+    timeout: 10000
+
+- assertVisible: "1. Age Eligibility"
+- assertVisible: "2. No Guarantee of Profit"
+- assertVisible: "3. Risk Awareness"
+- assertVisible: "4. Advisory Nature of Service"
+
+- tapOn: "I have read, understood, and agree to the above Client Declaration & Risk Disclosure Agreement."
+- waitForAnimationToEnd
+
+- tapOn: "Proceed to Payment"
+- waitForAnimationToEnd
+
+# 6. Cashfree NetBanking Simulation (When Amount > ₹0)
+- runFlow:
+    when:
+      visible: ".*Proceed to pay.*|.*Payment Page.*"
+    commands:
+      - tapOn: ".*Proceed to pay.*"
+      - waitForAnimationToEnd
+
+      - scrollUntilVisible:
+          element: "Net Banking"
+          direction: DOWN
+          timeout: 10000
+      - tapOn: "Net Banking"
+      - waitForAnimationToEnd
+
+      - scrollUntilVisible:
+          element: "State Bank Of India"
+          direction: DOWN
+          timeout: 10000
+      - tapOn: "State Bank Of India"
+      - waitForAnimationToEnd
+
+      - tapOn: "Proceed to Pay"
+      - waitForAnimationToEnd
+
+      # Enter Sandbox Gateway OTP: 111000
+      - extendedWaitUntil:
+          visible: ".*OTP.*"
+          timeout: 15000
+
+      - tapOn: ".*OTP.*"
+      - inputText: "111000"
+      - hideKeyboard
+      - waitForAnimationToEnd
+
+      - tapOn: "SUCCESS"
+      - waitForAnimationToEnd
+
+      - tapOn: "Submit"
+      - waitForAnimationToEnd
+
+# 7. Payment Confirmation Verification
+- extendedWaitUntil:
+    visible: "Payment Successful!"
+    timeout: 25000
+
+- assertVisible: "Payment Successful!"
+- assertVisible: "Order Summary"
+- assertVisible: "SUCCESS"
+
+- tapOn: "Continue"
+- waitForAnimationToEnd
+
+- runFlow:
+    file: ../flows/reset_to_explore.yaml

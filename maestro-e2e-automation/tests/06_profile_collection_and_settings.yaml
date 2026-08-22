@@ -1,0 +1,88 @@
+appId: com.research_mantra_official
+---
+# 1. Open Profile Tab
+- tapOn: "Profile"
+- waitForAnimationToEnd
+
+- assertVisible: "Help & Support"
+- assertVisible: "My Collection"
+- assertVisible: "Products"
+- assertVisible: "Settings"
+
+# 2. Edit Profile Details
+- tapOn: "View & edit profile >"
+- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: "Personal Details"
+    timeout: 10000
+
+- assertVisible: "Full Name *"
+- assertVisible: "Gender *"
+- assertVisible: "Verified"
+
+# Toggle Gender radio and update
+- tapOn: "Female"
+- waitForAnimationToEnd
+
+- tapOn: "Update"
+- waitForAnimationToEnd
+
+- back
+- waitForAnimationToEnd
+
+# 3. My Collection (Active Products & History Invoices)
+- tapOn: "My Collection"
+- waitForAnimationToEnd
+
+# Products Tab (Active Subscriptions)
+- assertVisible: "Products"
+- assertVisible: "History"
+- assertVisible: "Activated"
+
+# History Tab (Invoices)
+- tapOn: "History"
+- waitForAnimationToEnd
+
+- assertVisible: "Paid"
+- assertVisible: "Download Invoice"
+
+- tapOn:
+    text: "Download Invoice"
+    index: 0
+- waitForAnimationToEnd
+
+# Dismiss Android PDF Share Sheet
+- back
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+# 4. Settings & Safe Logout
+- tapOn: "Settings"
+- waitForAnimationToEnd
+
+- assertVisible: "About Us"
+- assertVisible: "Contact"
+- assertVisible: "Delete Account"
+- assertVisible: "Logout"
+
+# Trigger Logout Dialog
+- tapOn: "Logout"
+- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: "Logout ?"
+    timeout: 10000
+
+- assertVisible: "Do you want to logout? Your journey continues when you log back in!"
+- tapOn: "Confirm"
+- waitForAnimationToEnd
+
+# 5. Assert Return to Welcome Screen
+- extendedWaitUntil:
+    visible: "Welcome"
+    timeout: 15000
+
+- assertVisible: "Research Mantra"
+- assertVisible: "Continue"

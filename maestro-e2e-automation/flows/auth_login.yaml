@@ -1,0 +1,44 @@
+appId: com.research_mantra_official
+---
+# 1. Splash Welcome Screen
+- runFlow:
+    when:
+      visible: "Welcome"
+    commands:
+      - tapOn: "Continue"
+      - waitForAnimationToEnd
+
+- runFlow:
+    file: dismiss_popups.yaml
+
+# 2. WhatsApp Number Sign In
+- scrollUntilVisible:
+    element: ".*Enter WhatsApp number.*|.*Mobile number.*"
+    direction: DOWN
+    timeout: 12000
+
+- tapOn: ".*Enter WhatsApp number.*|.*Mobile number.*"
+- inputText: "7661936959"
+- hideKeyboard
+- waitForAnimationToEnd
+
+- tapOn: "Continue with Mobile Number"
+- waitForAnimationToEnd
+
+# 3. OTP Verification (123456)
+- extendedWaitUntil:
+    visible: "Enter your Verification Code"
+    timeout: 15000
+
+- tapOn:
+    point: "12%, 44%"
+- inputText: "123456"
+- hideKeyboard
+- waitForAnimationToEnd
+
+- tapOn: "Verify otp"
+- waitForAnimationToEnd
+
+# 4. Post-Login Modals & SEBI Notice
+- runFlow:
+    file: dismiss_popups.yaml

@@ -1,0 +1,106 @@
+appId: com.research_mantra_official
+---
+# 1. Fresh Application Launch
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+# 2. System Push Notification Permission
+- runFlow:
+    when:
+      visible: ".*Allow Research Mantra to send you notifications.*|Allow"
+    commands:
+      - tapOn: "Allow"
+      - waitForAnimationToEnd
+
+# 3. Splash Screen Verification
+- extendedWaitUntil:
+    visible: ".*Welcome.*"
+    timeout: 15000
+
+- assertVisible: ".*Research Mantra.*"
+- assertVisible: ".*SEBI Reg Research Analyst.*"
+- assertVisible: ".*REG No.*INH000019150.*"
+- assertVisible: ".*Live trade ideas.*"
+- tapOn: "Continue"
+- waitForAnimationToEnd
+
+# 4. Sign In Screen Validation
+- assertVisible: "Sign in"
+- assertVisible: "Mobile number"
+- assertVisible: "By proceeding up,you are agreeing to our Terms & Conditions and Privacy Policy."
+
+# 5. WhatsApp Number Entry & OTP Trigger
+- tapOn: ".*Enter WhatsApp number.*"
+- inputText: "7661555998"
+- hideKeyboard
+- waitForAnimationToEnd
+
+- tapOn: "Continue with Mobile Number"
+- waitForAnimationToEnd
+
+# 6. OTP Verification Screen
+- extendedWaitUntil:
+    visible: "Enter your Verification Code"
+    timeout: 15000
+
+- assertVisible: "Otp sent to your whatsapp number.*"
+- tapOn:
+    point: "12%, 44%"
+- inputText: "123456"
+- hideKeyboard
+- waitForAnimationToEnd
+
+- tapOn: "Verify otp"
+- waitForAnimationToEnd
+
+# 7. Dynamic Profile Registration Modal
+- runFlow:
+    when:
+      visible: "Full Name *"
+    commands:
+      - tapOn: "Enter Your Name"
+      - inputText: "Bodakunti Vamshi Krishna"
+      - hideKeyboard
+      - waitForAnimationToEnd
+
+      - tapOn: "Enter Email Id"
+      - inputText: "vamshileadone@yop.com"
+      - hideKeyboard
+      - waitForAnimationToEnd
+
+      - tapOn: "Current City"
+      - inputText: "Hyderabad"
+      - hideKeyboard
+      - waitForAnimationToEnd
+
+      - tapOn: "Male"
+      - waitForAnimationToEnd
+
+      - tapOn: "Register"
+      - waitForAnimationToEnd
+
+# 8. SEBI Important Notice / Risk Disclosures
+- runFlow:
+    when:
+      visible: "Important Notice"
+    commands:
+      - assertVisible: "Risk Disclosures on Derivatives"
+      - tapOn: "I Understand"
+      - waitForAnimationToEnd
+
+# 9. Free Gift Modal Assertion
+- runFlow:
+    when:
+      visible: "Unlock Your Premium Free Gift"
+    commands:
+      - assertVisible: "Click Here To Activate Free Gift"
+      - assertVisible: "ACTIVATE"
+      - back
+      - waitForAnimationToEnd
+
+# 10. Dashboard Initial Landing Confirmation
+- assertVisible: "Explore"
+- assertVisible: "Trades"
+- assertVisible: "Calc"
+- assertVisible: "Profile"

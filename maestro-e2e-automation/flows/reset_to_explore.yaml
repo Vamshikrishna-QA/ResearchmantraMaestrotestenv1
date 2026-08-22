@@ -1,0 +1,18 @@
+appId: com.research_mantra_official
+---
+- runFlow:
+    when:
+      notVisible: "Explore"
+    commands:
+      - back
+      - waitForAnimationToEnd
+
+- runFlow:
+    when:
+      visible: ".*Do you want to exit.*|.*Exit App.*"
+    commands:
+      - tapOn: ".*Cancel.*|.*Stay.*|.*No.*"
+      - waitForAnimationToEnd
+
+- tapOn: "Explore"
+- waitForAnimationToEnd
