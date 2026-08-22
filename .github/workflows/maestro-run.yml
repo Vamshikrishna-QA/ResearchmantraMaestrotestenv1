@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SUITE_FILE: maestro-e2e-automation/master_suite.yaml
+      MAESTRO_API_KEY: ${{ secrets.MAESTRO_API_KEY }}
+      MAESTRO_PROJECT_ID: ${{ secrets.MAESTRO_PROJECT_ID }}
     steps:
       - name: Checkout Maestro Test Repository
         uses: actions/checkout@v4
@@ -26,7 +28,7 @@ jobs:
 
       # Preferred: Run on Maestro Cloud when secrets are configured
       - name: Run Tests on Maestro Cloud
-        if: ${{ secrets.MAESTRO_API_KEY != '' && secrets.MAESTRO_PROJECT_ID != '' }}
+        if: ${{ env.MAESTRO_API_KEY != '' && env.MAESTRO_PROJECT_ID != '' }}
         uses: mobile-dev-inc/action-maestro-cloud@v2
         with:
           api-key: ${{ secrets.MAESTRO_API_KEY }}
@@ -39,13 +41,13 @@ jobs:
 
       # Option B: Run via Maestro CLI on a self-hosted runner or GitHub runner
       - name: Install Maestro CLI (CLI-based runs)
-        if: ${{ secrets.MAESTRO_API_KEY == '' || secrets.MAESTRO_PROJECT_ID == '' }}
+        if: ${{ env.MAESTRO_API_KEY == '' || env.MAESTRO_PROJECT_ID == '' }}
         run: |
           curl -Ls "https://get.maestro.mobile.dev" | bash
           echo "$HOME/.maestro/bin" >> $GITHUB_PATH
 
       - name: Run Maestro test suite (CLI)
-        if: ${{ secrets.MAESTRO_API_KEY == '' || secrets.MAESTRO_PROJECT_ID == '' }}
+        if: ${{ env.MAESTRO_API_KEY == '' || env.MAESTRO_PROJECT_ID == '' }}
         run: |
           maestro test --file "$SUITE_FILE" --format junit --test-output-dir build/artifacts --output build/reports/junit-report.xml
 
