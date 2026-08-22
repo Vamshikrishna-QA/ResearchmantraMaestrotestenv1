@@ -42,6 +42,8 @@ appId: com.research_mantra_official
 - assertVisible: "Login button\nContinue with Mobile Number"
 - tapOn: "Login button\nContinue with Mobile Number"
 
+
+
 - waitForAnimationToEnd
 
 # 6. OTP Verification Screen
@@ -50,8 +52,11 @@ appId: com.research_mantra_official
     timeout: 15000
 
 - assertVisible: ".*Otp sent to your whatsapp number.*"
-- tapOn:
-    point: "12%, 44%"
+
+- tapOn: "Enter the 6 digit verification code"
+
+
+
 - inputText: "123456"
 - hideKeyboard
 - waitForAnimationToEnd
