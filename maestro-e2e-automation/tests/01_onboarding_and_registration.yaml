@@ -37,7 +37,11 @@ appId: com.research_mantra_official
 - hideKeyboard
 - waitForAnimationToEnd
 
-- tapOn: "Continue with Mobile Number"
+- scrollUntilVisible:
+    element: "Login button\nContinue with Mobile Number"
+- assertVisible: "Login button\nContinue with Mobile Number"
+- tapOn: "Login button\nContinue with Mobile Number"
+
 - waitForAnimationToEnd
 
 # 6. OTP Verification Screen
