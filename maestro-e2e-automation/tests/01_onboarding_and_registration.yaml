@@ -26,9 +26,10 @@ appId: com.research_mantra_official
 - waitForAnimationToEnd
 
 # 4. Sign In Screen Validation
-- assertVisible: "Sign in"
-- assertVisible: "Mobile number"
-- assertVisible: "By proceeding up,you are agreeing to our Terms & Conditions and Privacy Policy."
+- assertVisible: ".*Sign in.*"
+- assertVisible: ".*Mobile number.*"
+- assertVisible: ".*By proceeding up,you are agreeing to our.*"
+- assertVisible: ".*Terms & Conditions and Privacy Policy.*"
 
 # 5. WhatsApp Number Entry & OTP Trigger
 - tapOn: ".*Enter WhatsApp number.*"
@@ -41,35 +42,35 @@ appId: com.research_mantra_official
 
 # 6. OTP Verification Screen
 - extendedWaitUntil:
-    visible: "Enter your Verification Code"
+    visible: ".*Enter your Verification Code.*"
     timeout: 15000
 
-- assertVisible: "Otp sent to your whatsapp number.*"
+- assertVisible: ".*Otp sent to your whatsapp number.*"
 - tapOn:
     point: "12%, 44%"
 - inputText: "123456"
 - hideKeyboard
 - waitForAnimationToEnd
 
-- tapOn: "Verify otp"
+- tapOn: ".*Verify otp.*"
 - waitForAnimationToEnd
 
 # 7. Dynamic Profile Registration Modal
 - runFlow:
     when:
-      visible: "Full Name *"
+      visible: ".*Full Name.*"
     commands:
-      - tapOn: "Enter Your Name"
+      - tapOn: ".*Enter Your Name.*"
       - inputText: "Bodakunti Vamshi Krishna"
       - hideKeyboard
       - waitForAnimationToEnd
 
-      - tapOn: "Enter Email Id"
+      - tapOn: ".*Enter Email Id.*"
       - inputText: "vamshileadone@yop.com"
       - hideKeyboard
       - waitForAnimationToEnd
 
-      - tapOn: "Current City"
+      - tapOn: ".*Current City.*"
       - inputText: "Hyderabad"
       - hideKeyboard
       - waitForAnimationToEnd
@@ -77,30 +78,30 @@ appId: com.research_mantra_official
       - tapOn: "Male"
       - waitForAnimationToEnd
 
-      - tapOn: "Register"
+      - tapOn: ".*Register.*"
       - waitForAnimationToEnd
 
 # 8. SEBI Important Notice / Risk Disclosures
 - runFlow:
     when:
-      visible: "Important Notice"
+      visible: ".*Important Notice.*"
     commands:
-      - assertVisible: "Risk Disclosures on Derivatives"
+      - assertVisible: ".*Risk Disclosures on Derivatives.*"
       - tapOn: "I Understand"
       - waitForAnimationToEnd
 
 # 9. Free Gift Modal Assertion
 - runFlow:
     when:
-      visible: "Unlock Your Premium Free Gift"
+      visible: ".*Unlock Your Premium Free Gift.*"
     commands:
-      - assertVisible: "Click Here To Activate Free Gift"
-      - assertVisible: "ACTIVATE"
+      - assertVisible: ".*Click Here To Activate Free Gift.*"
+      - assertVisible: ".*ACTIVATE.*"
       - back
       - waitForAnimationToEnd
 
 # 10. Dashboard Initial Landing Confirmation
-- assertVisible: "Explore"
-- assertVisible: "Trades"
-- assertVisible: "Calc"
-- assertVisible: "Profile"
+- assertVisible: ".*Explore.*"
+- assertVisible: ".*Trades.*"
+- assertVisible: ".*Calc.*"
+- assertVisible: ".*Profile.*"
