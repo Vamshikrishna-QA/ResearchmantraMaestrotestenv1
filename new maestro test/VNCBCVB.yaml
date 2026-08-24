@@ -1,0 +1,263 @@
+appId: com.research_mantra_official
+---
+# ==============================================================================
+# POINT-DRIVEN END-TO-END FLOW (IMAGE TARGETS & CANVAS ELEMENTS)
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. APP LAUNCH & TOP BAR AUDIT (COORDINATE HIT-TARGETS)
+# ------------------------------------------------------------------------------
+- launchApp:
+    clearState: false
+- waitForAnimationToEnd
+
+# 1.1 Open Top-Bar Cart Icon (Image Point Tap: 76%, 8%)
+- tapOn:
+    point: "76%, 8%"
+- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: ".*Cart.*|.*Your cart is empty.*"
+    timeout: 10000
+
+# 1.2 Top-Left Back Arrow Navigation (Point Tap: 6%, 6%)
+- tapOn:
+    point: "6%, 6%"
+- waitForAnimationToEnd
+
+# ------------------------------------------------------------------------------
+# 2. FLOW A: COMMODITY MANTRA (100% FREE COUPON -> SEBI PAN KYC)
+# ------------------------------------------------------------------------------
+# 2.1 Top-Left 2x2 Grid Image: Commodity Mantra (Point Tap: 28%, 43%)
+- tapOn:
+    point: "28%, 43%"
+- waitForAnimationToEnd
+
+# 2.2 Select MCX Positional Card (Point Tap: 50%, 30%)
+- tapOn:
+    point: "50%, 30%"
+- waitForAnimationToEnd
+
+# 2.3 Switch to Performance Tab & Back to Overview
+- tapOn:
+    point: "75%, 12%"
+- waitForAnimationToEnd
+
+- tapOn:
+    point: "25%, 12%"
+- waitForAnimationToEnd
+
+# 2.4 Add To Cart (Top Right Action: 90%, 17%)
+- tapOn:
+    point: "90%, 17%"
+- waitForAnimationToEnd
+
+# 2.5 Bottom Action Button: Activate Now (Point Tap: 50%, 91%)
+- tapOn:
+    point: "50%, 91%"
+- waitForAnimationToEnd
+
+# 2.6 Select 12 Months Plan Card (Point Tap: 50%, 48%)
+- tapOn:
+    point: "50%, 48%"
+- waitForAnimationToEnd
+
+# 2.7 View All Coupons (Point Tap: 85%, 62%)
+- tapOn:
+    point: "85%, 62%"
+- waitForAnimationToEnd
+
+# 2.8 Apply 100% Free Coupon (Deal Apply Tap: 85%, 44%)
+- tapOn:
+    point: "85%, 44%"
+- waitForAnimationToEnd
+
+# 2.9 Bottom Action: GET FREE (Point Tap: 50%, 91%)
+- tapOn:
+    point: "50%, 91%"
+- waitForAnimationToEnd
+
+# 2.10 SEBI Disclosure Checkbox & Proceed
+- tapOn:
+    point: "10%, 78%"
+- waitForAnimationToEnd
+
+- tapOn:
+    point: "50%, 91%"
+- waitForAnimationToEnd
+
+# 2.11 Mandatory PAN Verification (KYC: BXPPV1297K)
+- runFlow:
+    when:
+      visible: ".*PAN Verification.*|.*View Stocks.*|.*e.g. ABCDE1234F.*"
+    commands:
+      - runFlow:
+          when:
+            visible: ".*View Stocks.*"
+          commands:
+            - tapOn: ".*View Stocks.*"
+            - waitForAnimationToEnd
+
+      - tapOn: ".*e.g. ABCDE1234F.*|.*PAN Number.*"
+      - inputText: "BXPPV1297K"
+      - hideKeyboard
+      - waitForAnimationToEnd
+
+      - tapOn: ".*Verify PAN.*"
+      - waitForAnimationToEnd
+
+      - extendedWaitUntil:
+          visible: ".*Go to Trades.*|.*Verification Successful.*"
+          timeout: 15000
+
+      - tapOn: ".*Go to Trades.*"
+      - waitForAnimationToEnd
+
+# 2.12 Live Trades Sub-Tabs & Commentary Check
+- tapOn: "Live Trades"
+- waitForAnimationToEnd
+
+- tapOn:
+    point: "75%, 22%"
+- waitForAnimationToEnd
+
+- tapOn:
+    point: "25%, 22%"
+- waitForAnimationToEnd
+
+# ------------------------------------------------------------------------------
+# 3. FLOW B: EQUITY MANTRA (RESEARCH REPORT -> CASHFREE GATEWAY)
+# ------------------------------------------------------------------------------
+# 3.1 Return to Explore Home (Bottom Bar Tap: 12%, 95%)
+- tapOn:
+    point: "12%, 95%"
+- waitForAnimationToEnd
+
+# 3.2 Top-Right 2x2 Grid Image: Equity Mantra (Point Tap: 72%, 43%)
+- tapOn:
+    point: "72%, 43%"
+- waitForAnimationToEnd
+
+# 3.3 Select Research Report Product Card (Point Tap: 50%, 25%)
+- tapOn:
+    point: "50%, 25%"
+- waitForAnimationToEnd
+
+# 3.4 Add to Cart & Open Checkout
+- tapOn: "Add To Cart"
+- waitForAnimationToEnd
+
+- tapOn:
+    point: "50%, 91%"
+- waitForAnimationToEnd
+
+# 3.5 Select 12 Months Plan Card (Point Tap: 50%, 48%)
+- tapOn:
+    point: "50%, 48%"
+- waitForAnimationToEnd
+
+# 3.6 Bottom Action: Ready to Pay (Point Tap: 50%, 91%)
+- tapOn:
+    point: "50%, 91%"
+- waitForAnimationToEnd
+
+# 3.7 SEBI Risk Disclosure Checkbox & Proceed
+- tapOn:
+    point: "10%, 78%"
+- waitForAnimationToEnd
+
+- tapOn:
+    point: "50%, 91%"
+- waitForAnimationToEnd
+
+# ------------------------------------------------------------------------------
+# 4. CASHFREE PAYMENT GATEWAY SIMULATION (NETBANKING + OTP: 111000)
+# ------------------------------------------------------------------------------
+- extendedWaitUntil:
+    visible: ".*Proceed to pay.*|.*Payment Page.*"
+    timeout: 20000
+
+# 4.1 Tap Proceed to Pay (Point Tap: 50%, 88%)
+- tapOn:
+    point: "50%, 88%"
+- waitForAnimationToEnd
+
+# 4.2 Select Net Banking Option
+- scrollUntilVisible:
+    element: "Net Banking"
+    direction: DOWN
+    timeout: 10000
+- tapOn: "Net Banking"
+- waitForAnimationToEnd
+
+# 4.3 Select State Bank of India
+- scrollUntilVisible:
+    element: "State Bank Of India"
+    direction: DOWN
+    timeout: 10000
+- tapOn: "State Bank Of India"
+- waitForAnimationToEnd
+
+# 4.4 Tap Proceed to Pay in Gateway
+- tapOn:
+    point: "50%, 91%"
+- waitForAnimationToEnd
+
+# 4.5 Gateway Simulator: Enter OTP (111000)
+- extendedWaitUntil:
+    visible: ".*Simulator.*|.*Enter OTP.*"
+    timeout: 20000
+
+- tapOn:
+    point: "50%, 56%"
+- inputText: "111000"
+- hideKeyboard
+- waitForAnimationToEnd
+
+# 4.6 Select SUCCESS Radio Status (Point Tap: 25%, 73%)
+- tapOn:
+    point: "25%, 73%"
+- waitForAnimationToEnd
+
+# 4.7 Tap Gateway Submit Button (Point Tap: 50%, 80%)
+- tapOn:
+    point: "50%, 80%"
+- waitForAnimationToEnd
+
+# ------------------------------------------------------------------------------
+# 5. PAYMENT CONFIRMATION & PROFILE INVOICE AUDIT
+# ------------------------------------------------------------------------------
+- extendedWaitUntil:
+    visible: ".*Payment Successful!.*|.*Payment Success.*"
+    timeout: 25000
+
+- tapOn: "Continue"
+- waitForAnimationToEnd
+
+# 5.1 Navigate to Profile (Bottom Bar Tap: 88%, 95%)
+- tapOn:
+    point: "88%, 95%"
+- waitForAnimationToEnd
+
+# 5.2 Open My Collection Menu Item (Point Tap: 50%, 43%)
+- tapOn:
+    point: "50%, 43%"
+- waitForAnimationToEnd
+
+# 5.3 Audit Products Tab & Switch to History Tab (Point Tap: 75%, 12%)
+- tapOn:
+    point: "75%, 12%"
+- waitForAnimationToEnd
+
+# 5.4 Tap Download Invoice Button
+- tapOn: "Download Invoice"
+- waitForAnimationToEnd
+
+# Dismiss OS Share Sheet
+- back
+- waitForAnimationToEnd
+
+# 5.5 Return to Explore Home (Bottom Bar Tap: 12%, 95%)
+- tapOn:
+    point: "12%, 95%"
+- waitForAnimationToEnd

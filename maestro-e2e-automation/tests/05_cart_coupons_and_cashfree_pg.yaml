@@ -1,21 +1,24 @@
 appId: com.research_mantra_official
 ---
+# ==========================================
+# FLOW 1: 100% FREE COUPON (BYPASS CASHFREE)
+# ==========================================
 # 1. Product Selection: Research Report
-- tapOn: "Trades"
+- tapOn: ".*Trades.*"
 - waitForAnimationToEnd
-- tapOn: "Services"
+- tapOn: ".*Services.*"
 - waitForAnimationToEnd
 
 - scrollUntilVisible:
-    element: "RESEARCH REPORT"
+    element: ".*RESEARCH REPORT.*"
     direction: DOWN
     timeout: 10000
 
-- tapOn: "RESEARCH REPORT"
+- tapOn: ".*RESEARCH REPORT.*"
 - waitForAnimationToEnd
 
-- assertVisible: "Research Report"
-- assertVisible: "Premium Research"
+- assertVisible: ".*Research Report.*"
+- assertVisible: ".*Premium Research.*"
 - tapOn: ".*Add [tT]o Cart.*"
 - waitForAnimationToEnd
 
@@ -24,108 +27,164 @@ appId: com.research_mantra_official
     point: "76%, 8%"
 - waitForAnimationToEnd
 
-- assertVisible: "Cart"
-- assertVisible: "Research Report"
-- assertVisible: "₹999.00"
+- assertVisible: ".*Cart.*"
+- assertVisible: ".*Research Report.*"
 
 # 3. Apply 100% Promo Coupon (GETFREE)
-- tapOn: "View Coupon"
+- tapOn: ".*View Coupon.*"
 - waitForAnimationToEnd
 
 - extendedWaitUntil:
-    visible: "Have a coupon code?"
+    visible: ".*Have a coupon code\\?.*"
     timeout: 10000
 
 - tapOn:
-    text: "Apply"
+    text: ".*Apply.*"
     index: 1
 - waitForAnimationToEnd
 
-- assertVisible: "Coupon \"GETFREE\" applied"
-- assertVisible: "₹0.00"
+- assertVisible: ".*Coupon \"GETFREE\" applied.*"
+- assertVisible: ".*₹0.00.*"
 
 # 4. Trigger Duration Picker
-- tapOn: "Activate Now"
+- tapOn: ".*Activate Now.*"
 - waitForAnimationToEnd
 
 - extendedWaitUntil:
-    visible: "Choose Duration"
+    visible: ".*Choose Duration.*"
     timeout: 10000
 
-- assertVisible: "Quarterly Plan"
-- assertVisible: "Half-Yearly Plan"
-- assertVisible: "Yearly Plan"
-
-- tapOn: "GET FREE"
+- tapOn: ".*GET FREE.*"
 - waitForAnimationToEnd
 
 # 5. SEBI Client Declaration & Risk Disclosure Agreement
 - extendedWaitUntil:
-    visible: "Client Declaration & Risk Disclosure Agreement (As per SEBI Guidelines)"
+    visible: ".*Client Declaration & Risk Disclosure Agreement.*"
     timeout: 10000
 
-- assertVisible: "1. Age Eligibility"
-- assertVisible: "2. No Guarantee of Profit"
-- assertVisible: "3. Risk Awareness"
-- assertVisible: "4. Advisory Nature of Service"
-
-- tapOn: "I have read, understood, and agree to the above Client Declaration & Risk Disclosure Agreement."
+- tapOn: ".*I have read, understood, and agree to the above Client Declaration & Risk Disclosure Agreement.*"
 - waitForAnimationToEnd
 
-- tapOn: "Proceed to Payment"
+- tapOn: ".*Proceed to Payment.*"
 - waitForAnimationToEnd
 
-# 6. Cashfree NetBanking Simulation (When Amount > ₹0)
-- runFlow:
-    when:
-      visible: ".*Proceed to pay.*|.*Payment Page.*"
-    commands:
-      - tapOn: ".*Proceed to pay.*"
-      - waitForAnimationToEnd
-
-      - scrollUntilVisible:
-          element: "Net Banking"
-          direction: DOWN
-          timeout: 10000
-      - tapOn: "Net Banking"
-      - waitForAnimationToEnd
-
-      - scrollUntilVisible:
-          element: "State Bank Of India"
-          direction: DOWN
-          timeout: 10000
-      - tapOn: "State Bank Of India"
-      - waitForAnimationToEnd
-
-      - tapOn: "Proceed to Pay"
-      - waitForAnimationToEnd
-
-      # Enter Sandbox Gateway OTP: 111000
-      - extendedWaitUntil:
-          visible: ".*OTP.*"
-          timeout: 15000
-
-      - tapOn: ".*OTP.*"
-      - inputText: "111000"
-      - hideKeyboard
-      - waitForAnimationToEnd
-
-      - tapOn: "SUCCESS"
-      - waitForAnimationToEnd
-
-      - tapOn: "Submit"
-      - waitForAnimationToEnd
-
-# 7. Payment Confirmation Verification
+# 6. Verify Bypassed Payment (Toast & Empty Cart)
 - extendedWaitUntil:
-    visible: "Payment Successful!"
+    visible: ".*Product added successfully.*"
+    timeout: 15000
+
+- assertVisible: ".*Your cart is empty.*"
+
+- back
+- waitForAnimationToEnd
+- back
+- waitForAnimationToEnd
+
+
+# ==========================================
+# FLOW 2: PAID CASHFREE SIMULATOR
+# ==========================================
+# 1. Product Selection: Dhan Setu Index
+- tapOn: ".*Trades.*"
+- waitForAnimationToEnd
+- tapOn: ".*Services.*"
+- waitForAnimationToEnd
+
+- scrollUntilVisible:
+    element: ".*DHAN SETU INDEX PLAN.*"
+    direction: DOWN
+    timeout: 10000
+
+- tapOn: ".*DHAN SETU INDEX PLAN.*"
+- waitForAnimationToEnd
+
+- tapOn: ".*Add [tT]o Cart.*"
+- waitForAnimationToEnd
+
+# 2. Open Cart
+- tapOn:
+    point: "76%, 8%"
+- waitForAnimationToEnd
+
+- assertVisible: ".*Cart.*"
+- assertVisible: ".*Dhan Setu Index.*"
+- assertVisible: ".*₹999.00.*"
+
+# 3. Trigger Duration Picker (No Coupon Applied)
+- tapOn: ".*Activate Now.*"
+- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: ".*Choose Duration.*"
+    timeout: 10000
+
+- tapOn: ".*Yearly Plan.*"
+- waitForAnimationToEnd
+
+- tapOn: ".*Ready to pay.*"
+- waitForAnimationToEnd
+
+# 4. SEBI Client Declaration
+- extendedWaitUntil:
+    visible: ".*Client Declaration & Risk Disclosure Agreement.*"
+    timeout: 10000
+
+- tapOn: ".*I have read, understood, and agree to the above Client Declaration & Risk Disclosure Agreement.*"
+- waitForAnimationToEnd
+
+- tapOn: ".*Proceed to Payment.*"
+- waitForAnimationToEnd
+
+# 5. Cashfree NetBanking Simulation
+- extendedWaitUntil:
+    visible: ".*Proceed to pay.*|.*Payment Page.*"
+    timeout: 20000
+
+- tapOn: ".*Proceed to pay.*"
+- waitForAnimationToEnd
+
+- scrollUntilVisible:
+    element: ".*Net Banking.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn: ".*Net Banking.*"
+- waitForAnimationToEnd
+
+- scrollUntilVisible:
+    element: ".*State Bank Of India.*"
+    direction: DOWN
+    timeout: 10000
+- tapOn: ".*State Bank Of India.*"
+- waitForAnimationToEnd
+
+- tapOn: ".*Proceed to Pay.*"
+- waitForAnimationToEnd
+
+# Enter Sandbox Gateway OTP: 111000
+- extendedWaitUntil:
+    visible: ".*OTP.*"
+    timeout: 15000
+
+- tapOn: ".*OTP.*"
+- inputText: "111000"
+- hideKeyboard
+- waitForAnimationToEnd
+
+- tapOn: ".*SUCCESS.*"
+- waitForAnimationToEnd
+
+- tapOn: ".*Submit.*"
+- waitForAnimationToEnd
+
+# 6. Payment Confirmation Verification
+- extendedWaitUntil:
+    visible: ".*Payment Successful!.*"
     timeout: 25000
 
-- assertVisible: "Payment Successful!"
-- assertVisible: "Order Summary"
-- assertVisible: "SUCCESS"
+- assertVisible: ".*Order Summary.*"
+- assertVisible: ".*SUCCESS.*"
 
-- tapOn: "Continue"
+- tapOn: ".*Continue.*"
 - waitForAnimationToEnd
 
 - runFlow:

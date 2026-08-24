@@ -1,54 +1,91 @@
 appId: com.research_mantra_official
 ---
 # 1. Open Profile Tab
-- tapOn: "Profile"
+- tapOn: ".*Profile.*"
 - waitForAnimationToEnd
 
-- assertVisible: "Help & Support"
-- assertVisible: "My Collection"
-- assertVisible: "Products"
-- assertVisible: "Settings"
+- assertVisible: ".*Help & Support.*"
+- assertVisible: ".*My Collection.*"
+- assertVisible: ".*Products.*"
+- assertVisible: ".*Settings.*"
 
 # 2. Edit Profile Details
-- tapOn: "View & edit profile >"
+- tapOn: ".*View & edit profile.*"
 - waitForAnimationToEnd
 
 - extendedWaitUntil:
-    visible: "Personal Details"
+    visible: ".*Personal Details.*"
     timeout: 10000
 
-- assertVisible: "Full Name *"
-- assertVisible: "Gender *"
-- assertVisible: "Verified"
+- assertVisible: ".*Full Name.*"
+- assertVisible: ".*Gender.*"
+- assertVisible: ".*Verified.*"
 
 # Toggle Gender radio and update
-- tapOn: "Female"
+- tapOn: ".*Female.*"
 - waitForAnimationToEnd
 
-- tapOn: "Update"
+- tapOn: ".*Update.*"
+- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: ".*Updated Successfully.*"
+    timeout: 10000
+
+# 3. Change Mobile Number Validation
+- tapOn: ".*Edit.*"
+- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: ".*Change Mobile Number.*"
+    timeout: 10000
+
+# Try an existing number
+- tapOn: ".*Change Mobile Number.*"
+- inputText: "7661936951"
+- hideKeyboard
+- waitForAnimationToEnd
+
+- assertVisible: ".*The mobile number already exists.*"
+
+# Try current number
+- tapOn:
+    point: "78%, 93%" # X icon to clear field roughly
+- eraseText: 10
+- inputText: "1234567895"
+- hideKeyboard
+- waitForAnimationToEnd
+
+- assertVisible: ".*You are already using this mobile number.*"
+
+# Dismiss Bottom Sheet
+- swipe:
+    start: "50%, 40%"
+    end: "50%, 90%"
+    duration: 300
 - waitForAnimationToEnd
 
 - back
 - waitForAnimationToEnd
 
-# 3. My Collection (Active Products & History Invoices)
-- tapOn: "My Collection"
+# 4. My Collection (Active Products & History Invoices)
+- tapOn: ".*My Collection.*"
 - waitForAnimationToEnd
 
 # Products Tab (Active Subscriptions)
-- assertVisible: "Products"
-- assertVisible: "History"
-- assertVisible: "Activated"
+- assertVisible: ".*Products.*"
+- assertVisible: ".*History.*"
+- assertVisible: ".*Activated.*"
 
 # History Tab (Invoices)
-- tapOn: "History"
+- tapOn: ".*History.*"
 - waitForAnimationToEnd
 
-- assertVisible: "Paid"
-- assertVisible: "Download Invoice"
+- assertVisible: ".*Paid.*"
+- assertVisible: ".*Download Invoice.*"
 
 - tapOn:
-    text: "Download Invoice"
+    text: ".*Download Invoice.*"
     index: 0
 - waitForAnimationToEnd
 
@@ -58,31 +95,31 @@ appId: com.research_mantra_official
 - back
 - waitForAnimationToEnd
 
-# 4. Settings & Safe Logout
-- tapOn: "Settings"
+# 5. Settings & Safe Logout
+- tapOn: ".*Settings.*"
 - waitForAnimationToEnd
 
-- assertVisible: "About Us"
-- assertVisible: "Contact"
-- assertVisible: "Delete Account"
-- assertVisible: "Logout"
+- assertVisible: ".*About Us.*"
+- assertVisible: ".*Contact.*"
+- assertVisible: ".*Delete Account.*"
+- assertVisible: ".*Logout.*"
 
 # Trigger Logout Dialog
-- tapOn: "Logout"
+- tapOn: ".*Logout.*"
 - waitForAnimationToEnd
 
 - extendedWaitUntil:
-    visible: "Logout ?"
+    visible: ".*Logout \\?.*"
     timeout: 10000
 
-- assertVisible: "Do you want to logout? Your journey continues when you log back in!"
-- tapOn: "Confirm"
+- assertVisible: ".*Do you want to logout\\? Your journey continues when you log back in!.*"
+- tapOn: ".*Confirm.*"
 - waitForAnimationToEnd
 
-# 5. Assert Return to Welcome Screen
+# 6. Assert Return to Welcome Screen
 - extendedWaitUntil:
-    visible: "Welcome"
+    visible: ".*Welcome.*"
     timeout: 15000
 
-- assertVisible: "Research Mantra"
-- assertVisible: "Continue"
+- assertVisible: ".*Research Mantra.*"
+- assertVisible: ".*Continue.*"

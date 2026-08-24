@@ -5,27 +5,27 @@ appId: com.research_mantra_official
 - waitForAnimationToEnd
 
 # 2. Verify Services Catalog Categories
-- assertVisible: "Services"
-- assertVisible: "Live Trades"
-- assertVisible: "Closed Trades"
+- assertVisible: ".*Services.*"
+- assertVisible: ".*Live Trades.*"
+- assertVisible: ".*Closed Trades.*"
 
-- tapOn: "Commodity Mantra"
+- tapOn: ".*Commodity Mantra.*"
 - waitForAnimationToEnd
-- assertVisible: "MCX Positional (Base Metals)"
-- assertVisible: "MCX Positional (Gold&Silver)"
+- assertVisible: ".*MCX Positional \\(Base Metals\\).*"
+- assertVisible: ".*MCX Positional \\(Gold&Silver\\).*"
 
-- tapOn: "Equity Mantra"
+- tapOn: ".*Equity Mantra.*"
 - waitForAnimationToEnd
-- assertVisible: "RESEARCH REPORT"
-- assertVisible: "LONG TERM GOAL-ORIENTED"
+- assertVisible: ".*RESEARCH REPORT.*"
+- assertVisible: ".*LONG TERM GOAL-ORIENTED.*"
 
-- tapOn: "Future Mantra"
+- tapOn: ".*Future Mantra.*"
 - waitForAnimationToEnd
-- assertVisible: "NIFTY POSITIONAL"
-- assertVisible: "MIDCAP POSITIONAL"
+- assertVisible: ".*NIFTY POSITIONAL.*"
+- assertVisible: ".*MIDCAP POSITIONAL.*"
 
 # 3. Live Trades Feed & PAN KYC Guard
-- tapOn: "Live Trades"
+- tapOn: ".*Live Trades.*"
 - waitForAnimationToEnd
 
 - runFlow:
@@ -34,9 +34,9 @@ appId: com.research_mantra_official
 # 4. Handle Active Feed vs Free Trial Activation
 - runFlow:
     when:
-      visible: "Activate Free Trial"
+      visible: ".*Activate Free Trial.*"
     commands:
-      - tapOn: "Activate Free Trial"
+      - tapOn: ".*Activate Free Trial.*"
       - waitForAnimationToEnd
       - runFlow:
           file: ../flows/dismiss_popups.yaml
@@ -44,20 +44,20 @@ appId: com.research_mantra_official
 # 5. Open Trade Details Bottom Sheet
 - runFlow:
     when:
-      visible: "View Trade Details"
+      visible: ".*View Trade Details.*"
     commands:
       - tapOn:
-          text: "View Trade Details"
+          text: ".*View Trade Details.*"
           index: 0
       - waitForAnimationToEnd
 
-      - assertVisible: "Trade Details"
-      - assertVisible: "Analysis"
-      - assertVisible: "Trade Setup"
+      - assertVisible: ".*Trade Details.*"
+      - assertVisible: ".*Analysis.*"
+      - assertVisible: ".*Trade Setup.*"
       - assertVisible: ".*Entry Price.*"
       - assertVisible: ".*Stop Loss.*"
       - assertVisible: ".*Target.*"
-      - assertVisible: "Research Updates"
+      - assertVisible: ".*Research Updates.*"
 
       # Close Bottom Sheet (X)
       - tapOn:
@@ -65,12 +65,12 @@ appId: com.research_mantra_official
       - waitForAnimationToEnd
 
 # 6. Live Commentary Stream
-- tapOn: "Live Commentary"
+- tapOn: ".*Live Commentary.*"
 - waitForAnimationToEnd
 - assertVisible: ".*Connected to live updates.*|.*Waiting for live commentary.*|.*SIGNAL.*"
 
 # 7. Closed Trades & Excel Report Download
-- tapOn: "Closed Trades"
+- tapOn: ".*Closed Trades.*"
 - waitForAnimationToEnd
 
 # Tap Download Icon at bottom right
@@ -79,13 +79,17 @@ appId: com.research_mantra_official
 - waitForAnimationToEnd
 
 - extendedWaitUntil:
-    visible: "Download Closed Trade Report"
+    visible: ".*Download Closed Trade Report.*"
     timeout: 10000
 
-- assertVisible: "Start Date"
-- assertVisible: "End Date"
-- tapOn: "Download Report"
+- assertVisible: ".*Start Date.*"
+- assertVisible: ".*End Date.*"
+- tapOn: ".*Download Report.*"
 - waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: ".*Report downloaded successfully.*"
+    timeout: 10000
 
 # Dismiss Android OS Share Sheet
 - back

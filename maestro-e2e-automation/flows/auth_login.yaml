@@ -30,8 +30,7 @@ appId: com.research_mantra_official
     visible: "Enter your Verification Code"
     timeout: 15000
 
-- tapOn:
-    point: "12%, 44%"
+
 - inputText: "123456"
 - hideKeyboard
 - waitForAnimationToEnd

@@ -1,0 +1,450 @@
+appId: com.research_mantra_official
+---
+- launchApp:
+    clearState: true
+- scrollUntilVisible:
+    element: "Open profile details\nPaul Deckow"
+- assertVisible: "Open profile details\nPaul Deckow"
+- scrollUntilVisible:
+    element:
+      point: 71%,4%
+- assertVisible:
+    point: 71%,4%
+- tapOn:
+    point: 71%,4%
+- scrollUntilVisible:
+    element: "Cart"
+- assertVisible: "Cart"
+- scrollUntilVisible:
+    element: "Your cart is empty\nBrowse products and add the ones you want to subscribe to."
+- assertVisible: "Your cart is empty\nBrowse products and add the ones you want to subscribe to."
+- scrollUntilVisible:
+    element:
+      point: 3%,11%
+- assertVisible:
+    point: 3%,11%
+- scrollUntilVisible:
+    element: "Trade Plans by Susmita\nSEBI Reg."
+- assertVisible: "Trade Plans by Susmita\nSEBI Reg."
+- scrollUntilVisible:
+    element: "Susmita Sahoo REGN0.INH000019150"
+- assertVisible: "Susmita Sahoo REGN0.INH000019150"
+- scrollUntilVisible:
+    element: "View Past Performance"
+- assertVisible: "View Past Performance"
+- scrollUntilVisible:
+    element:
+      point: 2%,38%
+- assertVisible:
+    point: 2%,38%
+- tapOn:
+    point: 2%,38%
+- scrollUntilVisible:
+    element: "Commodity Mantra"
+- assertVisible: "Commodity Mantra"
+- tapOn: "Commodity Mantra"
+- scrollUntilVisible:
+    element: "MCX Positional (Base Metals)\nAbout MCX Positional (Base Metals)\n14\n3.6"
+- assertVisible: "MCX Positional (Base Metals)\nAbout MCX Positional (Base Metals)\n14\n3.6"
+- tapOn: "MCX Positional (Base Metals)\nAbout MCX Positional (Base Metals)\n14\n3.6"
+- scrollUntilVisible:
+    element: "Overview\nTab 1 of 2"
+- assertVisible: "Overview\nTab 1 of 2"
+- scrollUntilVisible:
+    element: "Performance\nTab 2 of 2"
+- assertVisible: "Performance\nTab 2 of 2"
+- scrollUntilVisible:
+    element: "No trades Found"
+- assertVisible: "No trades Found"
+- scrollUntilVisible:
+    element:
+      point: 82%,87%
+- assertVisible:
+    point: 82%,87%
+- tapOn:
+    point: 82%,87%
+- scrollUntilVisible:
+    element: "Performance"
+- assertVisible: "Performance"
+- scrollUntilVisible:
+    element: "No trades Found"
+- assertVisible: "No trades Found"
+- scrollUntilVisible:
+    element: "MCX Positional (Base Metals)"
+- assertVisible: "MCX Positional (Base Metals)"
+- scrollUntilVisible:
+    element:
+      point: 90%,17%
+- assertVisible:
+    point: 90%,17%
+- tapOn:
+    point: 90%,17%
+- scrollUntilVisible:
+    element:
+      point: 93%,20%
+- assertVisible:
+    point: 93%,20%
+- tapOn:
+    point: 93%,20%
+- scrollUntilVisible:
+    element: "Add To Cart"
+- assertVisible: "Add To Cart"
+- tapOn: "Add To Cart"
+- scrollUntilVisible:
+    element: "Validity\nRecommended Plan Duration\nQuarterly"
+- assertVisible: "Validity\nRecommended Plan Duration\nQuarterly"
+- scrollUntilVisible:
+    element: "Activate Now"
+- assertVisible: "Activate Now"
+- tapOn: "Activate Now"
+- scrollUntilVisible:
+    element: "MCX Positional (Base Metals) Plan"
+- assertVisible: "MCX Positional (Base Metals) Plan"
+- scrollUntilVisible:
+    element: "3 Months Plan\n₹2997.0\n₹1199.0\nSAVE ₹1798\nGet this benifits at\n399/m"
+- assertVisible: "6 Months Plan\n₹5994.0\n₹1600.0\nSAVE ₹4394\nGet this benifits at\n266/m"
+- tapOn: "12 Months Plan\n₹11988.0\n₹2601.0\nSAVE ₹9387\nGet this benifits at\n216/m"
+- scrollUntilVisible:
+    element: "Coupon discount"
+- assertVisible: "Coupon discount"
+- scrollUntilVisible:
+    element: "View All"
+- assertVisible: "View All"
+- tapOn: "View All"
+- scrollUntilVisible:
+    element: "Have a coupon code?"
+- assertVisible: "Have a coupon code?"
+- scrollUntilVisible:
+    element: "Enter coupon code"
+- assertVisible: "Enter coupon code"
+- scrollUntilVisible:
+    element: "Apply"
+- assertVisible: "Apply"
+- scrollUntilVisible:
+    element: "🏷️  100 % coupon\nUnlock Deal: getfree\nApply"
+- assertVisible: "🏷️  100 % coupon\nUnlock Deal: getfree\nApply"
+- tapOn: "🏷️  100 % coupon\nUnlock Deal: getfree\nApply"
+- scrollUntilVisible:
+    element: "GETFREE"
+- assertVisible: "GETFREE"
+- scrollUntilVisible:
+    element: "Total Payable Amount"
+- assertVisible: "Total Payable Amount"
+- scrollUntilVisible:
+    element: "GET FREE\nGET FREE"
+- assertVisible: "GET FREE\nGET FREE"
+- scrollUntilVisible:
+    element: "By proceeding, I accept the "
+- assertVisible: "By proceeding, I accept the "
+- scrollUntilVisible:
+    element: "Terms and Conditions, opens in browser"
+- assertVisible: "Terms and Conditions, opens in browser"
+- scrollUntilVisible:
+    element: "GET FREE\nGET FREE"
+- tapOn: "GET FREE\nGET FREE"
+- scrollUntilVisible:
+    element: "Client Declaration & Risk Disclosure Agreement (As per SEBI Guidelines)"
+- assertVisible: "Client Declaration & Risk Disclosure Agreement (As per SEBI Guidelines)"
+- scrollUntilVisible:
+    element: "I have read, understood, and agree to the above Client Declaration & Risk Disclosure Agreement."
+- assertVisible: "I have read, understood, and agree to the above Client Declaration & Risk Disclosure Agreement."
+- tapOn: "I have read, understood, and agree to the above Client Declaration & Risk Disclosure Agreement."
+- scrollUntilVisible:
+    element: "Cancel"
+- assertVisible: "Cancel"
+- scrollUntilVisible:
+    element: "Proceed to Payment"
+- assertVisible: "Proceed to Payment"
+- tapOn: "Proceed to Payment"
+- scrollUntilVisible:
+    element: "View Stocks"
+- assertVisible: "View Stocks"
+- tapOn: "View Stocks"
+- scrollUntilVisible:
+    element: "PAN Verification"
+- assertVisible: "PAN Verification"
+- scrollUntilVisible:
+    element: "As per SEBI guidelines, PAN verification is mandatory to activate your subscription."
+- assertVisible: "As per SEBI guidelines, PAN verification is mandatory to activate your subscription."
+- scrollUntilVisible:
+    element: "PAN Number"
+- assertVisible: "PAN Number"
+- scrollUntilVisible:
+    element: "e.g. ABCDE1234F"
+- assertVisible: "e.g. ABCDE1234F"
+- inputText: "BXPPV1297K"
+- scrollUntilVisible:
+    element: "Verify PAN"
+- assertVisible: "Verify PAN"
+- scrollUntilVisible:
+    element: "Verify PAN"
+- tapOn: "Verify PAN"
+
+- scrollUntilVisible:
+    element: "Verification Successful! Your PAN has been verified."
+- assertVisible: "Verification Successful! Your PAN has been verified."
+- scrollUntilVisible:
+    element: "Go to Trades"
+- assertVisible: "Go to Trades"
+- tapOn: "Go to Trades"
+- scrollUntilVisible:
+    element: "Live Trades"
+- assertVisible: "Live Trades"
+- tapOn: "Live Trades"
+- scrollUntilVisible:
+    element: "MCX Positional (Base Metals)"
+- assertVisible: "MCX Positional (Base Metals)"
+- tapOn: "MCX Positional (Base Metals)"
+- scrollUntilVisible:
+    element: "Details\nTab 1 of 2"
+- assertVisible: "Details\nTab 1 of 2"
+- tapOn: "Details\nTab 1 of 2"
+- scrollUntilVisible:
+    element: "Live Commentary\nTab 2 of 2"
+- assertVisible: "Live Commentary\nTab 2 of 2"
+- tapOn: "Live Commentary\nTab 2 of 2"
+- scrollUntilVisible:
+    element: "NEW\n08-07-2026 18:04:26\n📈 NATURALGAS (26AUG26)  |  5+ PTS MOVE  🚀\n🔔 Price Moved 5 Points in Our Direction\n\n📊 Side            ➤ LONG\n📍 CMP            ➤ ₹307.6\n💚 Entry           ➤ ₹300.5\n🛑 Revised SL    ➤ ₹291.49\n🎯 Revised TGT  ➤ ₹322.98\n\n✅ Trail SL  »  Hold Position  »  No Fresh Entries\n⚠️ Existing Recommendation  »  No New Positions Unless Specified"
+- assertVisible: "NEW\n08-07-2026 18:04:26\n📈 NATURALGAS (26AUG26)  |  5+ PTS MOVE  🚀\n🔔 Price Moved 5 Points in Our Direction\n\n📊 Side            ➤ LONG\n📍 CMP            ➤ ₹307.6\n💚 Entry           ➤ ₹300.5\n🛑 Revised SL    ➤ ₹291.49\n🎯 Revised TGT  ➤ ₹322.98\n\n✅ Trail SL  »  Hold Position  »  No Fresh Entries\n⚠️ Existing Recommendation  »  No New Positions Unless Specified"
+- scrollUntilVisible:
+    element: "Details\nTab 1 of 2"
+- tapOn: "Details\nTab 1 of 2"
+- scrollUntilVisible:
+    element: "Trade not active\nBUY\nKANSAINER\nNOT ACTIVATED\n11-08-2026 15:14\nEntry Price\n₹100.00\nStop Loss\n₹90.00\nTarget\n₹120.00\nValidity\nDAY\nEntry Reason\nTrade insight coming soon.\nView Trade Details"
+- assertVisible: "Trade not active\nBUY\nKANSAINER\nNOT ACTIVATED\n11-08-2026 15:14\nEntry Price\n₹100.00\nStop Loss\n₹90.00\nTarget\n₹120.00\nValidity\nDAY\nEntry Reason\nTrade insight coming soon.\nView Trade Details"
+- scrollUntilVisible:
+    element: "Trade Details"
+- assertVisible: "Trade Details"
+- scrollUntilVisible:
+    element: "BUY"
+- assertVisible: "BUY"
+- scrollUntilVisible:
+    element: "Trade Setup"
+- assertVisible: "Trade Setup"
+- scrollUntilVisible:
+    element: "Research Updates"
+- assertVisible: "Research Updates"
+- scrollUntilVisible:
+    element: "Please trade with proper risk management. This is for educational and research purposes only."
+- assertVisible: "Please trade with proper risk management. This is for educational and research purposes only."
+- back
+- scrollUntilVisible:
+    element:
+      point: 51%,38%
+- assertVisible:
+    point: 51%,38%
+- tapOn:
+    point: 51%,38%
+- scrollUntilVisible:
+    element: "Equity Mantra"
+- assertVisible: "Equity Mantra"
+- tapOn: "Equity Mantra"
+- scrollUntilVisible:
+    element: "Research Report\nBacked by Deep Research, Built for Smart Investors\n21\n4.0\nEditors Pick"
+- assertVisible: "Research Report\nBacked by Deep Research, Built for Smart Investors\n21\n4.0\nEditors Pick"
+- tapOn: "Research Report\nBacked by Deep Research, Built for Smart Investors\n21\n4.0\nEditors Pick"
+- scrollUntilVisible:
+    element: "Research Report"
+- assertVisible: "Research Report"
+- scrollUntilVisible:
+    element: "Premium Research"
+- scrollUntilVisible:
+    element: "Add To Cart"
+- assertVisible: "Add To Cart"
+- scrollUntilVisible:
+    element: "Validity\nRecommended Plan Duration\nYearly"
+- assertVisible: "Validity\nRecommended Plan Duration\nYearly"
+- scrollUntilVisible:
+    element:
+      point: 44%,91%
+- assertVisible:
+    point: 45%,91%
+- tapOn:
+    point: 43%,91%
+- scrollUntilVisible:
+    element: "Research Report Plan"
+- assertVisible: "Research Report Plan"
+- scrollUntilVisible:
+    element: "3 Months Plan\n₹1500.0\n₹999.0\nSAVE ₹501\nGet this benifits at\n333/m"
+- assertVisible: "3 Months Plan\n₹1500.0\n₹999.0\nSAVE ₹501\nGet this benifits at\n333/m"
+- scrollUntilVisible:
+    element: "6 Months Plan\n₹3000.0\n₹1599.0\nSAVE ₹1401\nGet this benifits at\n266/m"
+- assertVisible: "6 Months Plan\n₹3000.0\n₹1599.0\nSAVE ₹1401\nGet this benifits at\n266/m"
+- tapOn: "6 Months Plan\n₹3000.0\n₹1599.0\nSAVE ₹1401\nGet this benifits at\n266/m"
+- scrollUntilVisible:
+    element: "12 Months Plan\n₹6000.0\n₹3000.0\nSAVE ₹3000\nGet this benifits at\n250/m"
+- assertVisible: "12 Months Plan\n₹6000.0\n₹3000.0\nSAVE ₹3000\nGet this benifits at\n250/m"
+- tapOn: "12 Months Plan\n₹6000.0\n₹3000.0\nSAVE ₹3000\nGet this benifits at\n250/m"
+- scrollUntilVisible:
+    element: "Ready to pay ₹3000\nReady to pay ₹3000"
+- assertVisible: "Ready to pay ₹3000\nReady to pay ₹3000"
+- tapOn: "Ready to pay ₹3000\nReady to pay ₹3000"
+- scrollUntilVisible:
+    element: "Client Declaration & Risk Disclosure Agreement (As per SEBI Guidelines)"
+- scrollUntilVisible:
+    element: "I have read, understood, and agree to the above Client Declaration & Risk Disclosure Agreement."
+- assertVisible: "I have read, understood, and agree to the above Client Declaration & Risk Disclosure Agreement."
+- tapOn: "I have read, understood, and agree to the above Client Declaration & Risk Disclosure Agreement."
+- scrollUntilVisible:
+    element: "Cancel"
+- assertVisible: "Cancel"
+- scrollUntilVisible:
+    element: "Proceed to Payment"
+- assertVisible: "Proceed to Payment"
+- tapOn: "Proceed to Payment"
+- scrollUntilVisible:
+    element: "Payment Page"
+- assertVisible: "Payment Page"
+- tapOn: "Payment Page"
+- scrollUntilVisible:
+    element: "Pay before 21 September '26, 4:49 PM"
+- assertVisible: "Pay before 21 September '26, 4:49 PM"
+- scrollUntilVisible:
+    element:
+      text: "Secured by"
+      index: 1
+- assertVisible:
+    text: "Secured by"
+    index: 1
+- scrollUntilVisible:
+    element: "Proceed to pay"
+- assertVisible: "Proceed to pay"
+- tapOn: "Proceed to pay"
+- scrollUntilVisible:
+    element: "Payment Options for +91 8433432892"
+- assertVisible: "Payment Options for +91 8433432892"
+- scrollUntilVisible:
+    element: "Other Payment Options"
+- assertVisible: "Other Payment Options"
+- scrollUntilVisible:
+    element: "Net Banking"
+- assertVisible: "Net Banking"
+- tapOn: "Net Banking"
+- tapOn: "Net Banking"
+- scrollUntilVisible:
+    element: "Net Banking"
+- scrollUntilVisible:
+    element: "State Bank Of India State Bank Of India"
+- assertVisible: "State Bank Of India State Bank Of India"
+- tapOn: "State Bank Of India State Bank Of India"
+- scrollUntilVisible:
+    element: "Paying via"
+- assertVisible: "Paying via"
+- scrollUntilVisible:
+    element: "State Bank Of India"
+- scrollUntilVisible:
+    element: "Amount Details"
+- scrollUntilVisible:
+    element: "Proceed to Pay"
+- assertVisible: "Proceed to Pay"
+- tapOn: "Proceed to Pay"
+- scrollUntilVisible:
+    element: "Loading..."
+- scrollUntilVisible:
+    element: "rc-JBAl8spyp5hMhwk-ewiE85ryAXTzIxCP5mRa5eFG0x9KhOVzccq8A-wpaymentpayment?amount=3000.00&bankName=Test+Bank&orderCurrency=INR&paymentMode=NET_BANKING&returnUrl=https%3A%2F%2Fpayments-test.cashfree"
+- scrollUntilVisible:
+    element: "Simulator"
+- assertVisible: "Simulator"
+- scrollUntilVisible:
+    element: "This is a Payment Gateway simulating service and no actual debit occurs. Click on the respective button to send the response."
+- assertVisible: "This is a Payment Gateway simulating service and no actual debit occurs. Click on the respective button to send the response."
+- scrollUntilVisible:
+    element: "Please enter the OTP - 111000 to continue the transaction"
+- scrollUntilVisible:
+    element:
+      id: "basic-otp"
+- assertVisible:
+    id: "basic-otp"
+- inputText: "111000"
+- scrollUntilVisible:
+    element: " SUCCESS"
+- scrollUntilVisible:
+    element:
+      point: 12%,87%
+- tapOn:
+    point: 12%,87%
+- scrollUntilVisible:
+    element: "Submit"
+- assertVisible: "Submit"
+- tapOn: "Submit"
+- tapOn: "Submit"
+- scrollUntilVisible:
+    element:
+      id: "payment-status-wrapper"
+- assertVisible:
+    id: "payment-status-wrapper"
+- scrollUntilVisible:
+    element: "Payment Success!"
+- assertVisible: "Payment Success!"
+- scrollUntilVisible:
+    element: "Share Screenshot"
+- assertVisible: "Share Screenshot"
+- tapOn: "Share Screenshot"
+- scrollUntilVisible:
+    element: "Sharing image"
+- assertVisible: "Sharing image"
+- scrollUntilVisible:
+    element: "Payment Confirmation"
+- assertVisible: "Payment Confirmation"
+- scrollUntilVisible:
+    element: "✅ Payment Confirmed\nYour subscription is now active and ready to use.\nStart: 22-Aug-2026\nEnd: 22-Aug-2027\n\nThank you for purchasing the product!"
+- assertVisible: "✅ Payment Confirmed\nYour subscription is now active and ready to use.\nStart: 22-Aug-2026\nEnd: 22-Aug-2027\n\nThank you for purchasing the product!"
+- scrollUntilVisible:
+    element: "Order Summary"
+- assertVisible: "Order Summary"
+- scrollUntilVisible:
+    element: "Continue"
+- assertVisible: "Continue"
+- tapOn: "Continue"
+- scrollUntilVisible:
+    element: "Profile"
+- assertVisible: "Profile"
+- tapOn: "Profile"
+- scrollUntilVisible:
+    element: "My Collection\nManage and access your purchases"
+- assertVisible: "My Collection\nManage and access your purchases"
+- tapOn: "My Collection\nManage and access your purchases"
+- scrollUntilVisible:
+    element: "MCX Positional (Base Metals)\n22-Aug-2026\n to \n22-Aug-2027\n365 Days left."
+- assertVisible: "MCX Positional (Base Metals)\n22-Aug-2026\n to \n22-Aug-2027\n365 Days left."
+- scrollUntilVisible:
+    element: "Research Report\n22-Aug-2026\n to \n22-Aug-2027\n365 Days left."
+- assertVisible: "Research Report\n22-Aug-2026\n to \n22-Aug-2027\n365 Days left."
+- scrollUntilVisible:
+    element: "History\nTab 2 of 2"
+- assertVisible: "History\nTab 2 of 2"
+- tapOn: "History\nTab 2 of 2"
+- scrollUntilVisible:
+    element: "Product\nPaid\nResearch Report\nPaid Amount\nRs 3000.0\nPaid on\n22-Aug-2026 05:01 PM\nTransaction ID\nTRAN15522082026165729394"
+- assertVisible: "Product\nPaid\nResearch Report\nPaid Amount\nRs 3000.0\nPaid on\n22-Aug-2026 05:01 PM\nTransaction ID\nTRAN15522082026165729394"
+- scrollUntilVisible:
+    element: "Download Invoice"
+- assertVisible: "Download Invoice"
+- tapOn: "Download Invoice"
+- scrollUntilVisible:
+    element: "Sharing 1 file"
+- assertVisible: "Sharing 1 file"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
