@@ -5,51 +5,81 @@ appId: com.research_mantra_official
 - waitForAnimationToEnd
 
 # 2. Iterate through all 10 Calculators
+- scrollUntilVisible:
+    element: "Retirement Plans"
+    direction: DOWN
 - tapOn: "Retirement Plans"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
+- scrollUntilVisible:
+    element: "SIP Calculator"
+    direction: DOWN
 - tapOn: "SIP Calculator"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
+- scrollUntilVisible:
+    element: "Risk Reward Calculator"
+    direction: DOWN
 - tapOn: "Risk Reward Calculator"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
+- scrollUntilVisible:
+    element: "Car Loan Full payment"
+    direction: DOWN
 - tapOn: "Car Loan Full payment"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
+- scrollUntilVisible:
+    element: "GST Savings calculator"
+    direction: DOWN
 - tapOn: "GST Savings calculator"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
+- scrollUntilVisible:
+    element: "Home Loan Repayment"
+    direction: DOWN
 - tapOn: "Home Loan Repayment"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
+- scrollUntilVisible:
+    element: "Sukanya samriddhi Yojana"
+    direction: DOWN
 - tapOn: "Sukanya samriddhi Yojana"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
+- scrollUntilVisible:
+    element: "Lumpsum Calculator"
+    direction: DOWN
 - tapOn: "Lumpsum Calculator"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
+- scrollUntilVisible:
+    element: "CAGR Calculator"
+    direction: DOWN
 - tapOn: "CAGR Calculator"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
+- scrollUntilVisible:
+    element: "Salary Budget Calculator"
+    direction: DOWN
 - tapOn: "Salary Budget Calculator"
 - waitForAnimationToEnd
 - back
