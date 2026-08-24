@@ -20,8 +20,6 @@ appId: com.research_mantra_official
     timeout: 15000
 - assertVisible: "Continue"
 
-- takeScreenshot: "01_welcome_splash"
-
 - tapOn: "Continue"
 - waitForAnimationToEnd
 
@@ -58,8 +56,6 @@ appId: com.research_mantra_official
     length: 10
 - waitForAnimationToEnd
 
-- takeScreenshot: "02_sign_in_screen"
-
 - scrollUntilVisible:
     element: ".*Continue with Mobile Number.*"
     direction: DOWN
@@ -94,8 +90,6 @@ appId: com.research_mantra_official
 
 - inputText: "123456"
 - waitForAnimationToEnd
-
-- takeScreenshot: "03_otp_verification_screen"
 
 - scrollUntilVisible:
     element: "Verify otp"
@@ -170,8 +164,6 @@ appId: com.research_mantra_official
 - tapOn: "Male"
 - waitForAnimationToEnd
 
-- takeScreenshot: "04_registration_form_filled"
-
 - scrollUntilVisible:
     element: "Register"
     direction: DOWN
@@ -203,8 +195,6 @@ appId: com.research_mantra_official
     direction: DOWN
 - assertVisible: "I Understand"
 
-- takeScreenshot: "05_sebi_important_notice"
-
 - tapOn: "I Understand"
 - waitForAnimationToEnd
 
@@ -214,8 +204,6 @@ appId: com.research_mantra_official
     direction: DOWN
     timeout: 10000
 - assertVisible: "ACTIVATE"
-
-- takeScreenshot: "06_free_gift_modal"
 
 # Dismiss sheet to preserve fresh user state
 - back
@@ -271,8 +259,6 @@ appId: com.research_mantra_official
     direction: DOWN
 - assertVisible: "Verified"
 
-- takeScreenshot: "08_personal_details_screen"
-
 - scrollUntilVisible:
     element: "Edit"
     direction: DOWN
@@ -284,8 +270,6 @@ appId: com.research_mantra_official
     element: "Change Mobile Number"
     direction: DOWN
 - assertVisible: "Change Mobile Number"
-
-- takeScreenshot: "09_change_mobile_number_modal"
 
 # Tap Change Mobile Number submission button
 - scrollUntilVisible:
@@ -307,8 +291,6 @@ appId: com.research_mantra_official
     direction: DOWN
 - assertVisible: "You are already using this mobile number."
 
-- takeScreenshot: "10_duplicate_mobile_validation_error"
-
 # Return to Profile and Save
 - back
 - waitForAnimationToEnd
@@ -319,8 +301,6 @@ appId: com.research_mantra_official
 - assertVisible: "Update"
 - tapOn: "Update"
 - waitForAnimationToEnd
-
-- takeScreenshot: "11_profile_updated_successfully"
 
 - back
 - waitForAnimationToEnd
