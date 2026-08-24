@@ -15,54 +15,36 @@ appId: com.research_mantra_official
       - waitForAnimationToEnd
 
 # 3. 2x2 Trade Plans Grid Navigation
-# Commodity Mantra
 - scrollUntilVisible:
-    element: ".*Commodity Mantra.*"
+    element: ".*Trade Plans by Susmita.*"
     direction: DOWN
     timeout: 15000
-- assertVisible: ".*Commodity Mantra.*"
+- assertVisible: ".*Trade Plans by Susmita.*"
+
+# Commodity Mantra (Top-Left Card)
 - tapOn:
-    text: ".*Subscribe Now.*"
-    index: 0
+    point: "25%, 48%"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
-# Equity Mantra
-- scrollUntilVisible:
-    element: ".*Equity Mantra.*"
-    direction: DOWN
-    timeout: 15000
-- assertVisible: ".*Equity Mantra.*"
+# Equity Mantra (Top-Right Card)
 - tapOn:
-    text: ".*Subscribe Now.*"
-    index: 1
+    point: "75%, 48%"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
-# Future Mantra
-- scrollUntilVisible:
-    element: ".*Future Mantra.*"
-    direction: DOWN
-    timeout: 15000
-- assertVisible: ".*Future Mantra.*"
+# Future Mantra (Bottom-Left Card)
 - tapOn:
-    text: ".*Subscribe Now.*"
-    index: 0
+    point: "25%, 62%"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
 
-# Option Mantra
-- scrollUntilVisible:
-    element: ".*Option Mantra.*"
-    direction: DOWN
-    timeout: 15000
-- assertVisible: ".*Option Mantra.*"
+# Option Mantra (Bottom-Right Card)
 - tapOn:
-    text: ".*Subscribe Now.*"
-    index: 1
+    point: "75%, 62%"
 - waitForAnimationToEnd
 - back
 - waitForAnimationToEnd
